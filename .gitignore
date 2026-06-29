@@ -128,3 +128,6 @@ Android.bp
 #Temporary build files
 /KernelSU/
 /out/
+/common/drivers/kernelsu
+/drivers/kernelsu
+
