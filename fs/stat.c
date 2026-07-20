@@ -387,7 +387,6 @@ SYSCALL_DEFINE2(newfstat, unsigned int, fd, struct stat __user *, statbuf)
 	if (!error)
 		error = cp_new_stat(&stat, statbuf);
 
-
 #ifdef CONFIG_KSU_MANUAL_HOOK
 	ksu_handle_newfstat_ret(&fd, &statbuf);
 #endif
@@ -524,7 +523,7 @@ SYSCALL_DEFINE4(fstatat64, int, dfd, const char __user *, filename,
 	int error;
 
 #ifdef CONFIG_KSU_MANUAL_HOOK // 32-bit su
-	ksu_handle_stat(&dfd, &filename, &flag); 
+	ksu_handle_stat(&dfd, &filename, &flag);
 #endif
 
 	error = vfs_fstatat(dfd, filename, &stat, flag);
