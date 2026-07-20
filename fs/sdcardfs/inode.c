@@ -619,10 +619,9 @@ static int sdcardfs_setattr(struct vfsmount *mnt, struct dentry *dentry, struct 
 	struct inode tmp;
 	struct dentry tmp_d;
 	struct sdcardfs_inode_data *top;
+	const struct cred *saved_cred = NULL;
 
 	memset(&tmp, 0, sizeof(tmp));
-
-	const struct cred *saved_cred = NULL;
 
 	inode = d_inode(dentry);
 	top = top_data_get(SDCARDFS_I(inode));
